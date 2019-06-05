@@ -17,9 +17,9 @@ var messages = [];
 var today = new Date();
 var date = {
 	day: today.getDate(),
-	month: today.getMonth() + 1
+	month: today.getMonth() + 1,
+	year: today.getFullYear()
 };
-
 
 $(document).ready(function() {
 	$("#enterMessageHere").hide();
@@ -30,9 +30,20 @@ $(document).ready(function() {
 	$("#numPeopleOnline").hide();
 
 
+	database.ref("lastYear").once("value").then(function(snapshot) {
+		if (date.year > snapshot.val()) {
+			database.ref("messages/").remove();
+			database.ref("lastYear").set(date.year);
+			database.ref("lastMonth").set(date.month);
+			database.ref("lastDay").set(date.day);
+			window.location.reload(false);
+		}
+	});
+
 	database.ref("lastMonth").once("value").then(function(snapshot) {
 		if (date.month > snapshot.val()) {
 			database.ref("messages/").remove();
+			database.ref("lastYear").set(date.year);
 			database.ref("lastMonth").set(date.month);
 			database.ref("lastDay").set(date.day);
 			window.location.reload(false);
@@ -42,6 +53,7 @@ $(document).ready(function() {
 	database.ref("lastDay").once("value").then(function(snapshot) {
 		if (date.day >= snapshot.val() + 7) {
 			database.ref("messages/").remove();
+			database.ref("lastYear").set(date.year);
 			database.ref("lastDay").set(date.day);
 			window.location.reload(false);
 		}

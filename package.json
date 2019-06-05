@@ -1,0 +1,17 @@
+{
+  "name": "electronChat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "ivanbur",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.1.3"
+  },
+  "dependencies": {
+    "electron-reload": "^1.4.0"
+  }
+}
