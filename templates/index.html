@@ -1,0 +1,15 @@
+<html>
+	<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="/../static/js/app.js"></script>
+	<div id = "usernameEnter"> Please enter your username: <input id = "username" onkeypress = "usernameEntered()" autofocus></input></div>
+	<span id = "enterMessageHere">Enter your message here: </span>
+	<input id = "userMessage" onkeydown = "sendMessage()"></input>
+	</br>
+	<textarea id = "theTextArea" style = "width: 600px;height: 700px"></textarea>
+	</br>
+	<input id="sliderFontSize" onchange="changingSlider()" type="range" min="8" max = "20" value = "12\">
+	</br>
+	<div id = "changeFontSizeText">Change the font size with this slider</div>
+	<div id = "numPeopleOnline">Number of people online: </div>
+</html>
