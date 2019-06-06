@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 // Initialize Firebase
 var config = {
 	apiKey: "AIzaSyAfNcOHMO2-6wJXv--oTL3LY8sBaMtN8FM",
